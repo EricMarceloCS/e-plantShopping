@@ -27,7 +27,7 @@ function App() {
           <p>Where Nature is Home</p>
          
           <button className="get-started-button" onClick={handleGetStartedClick}>
-           Enter Site
+           Get Started
           </button>
          </div>
           <div className="aboutus_container">
