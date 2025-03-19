@@ -268,7 +268,7 @@ function ProductList({ onHomeClick }) {
 
     const calculateTotalQuantity = () => {
         let totalQuantity = 0;
-        dispatch(updateQuantity())
+        
         return totalQuantity;
     }
     return (
