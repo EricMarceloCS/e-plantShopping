@@ -6,6 +6,7 @@ import { addItem } from './CartSlice';
 function ProductList({ onHomeClick }) {
     const [showCart, setShowCart] = useState(false);
     const [showPlants, setShowPlants] = useState(false); // State to control the visibility of the About Us page
+    const [addedToCart, setAddedToCart]= useState(false);
     const dispatch = useDispatch();
 
     const plantsArray = [
@@ -255,7 +256,7 @@ function ProductList({ onHomeClick }) {
         e.preventDefault();
         setShowCart(false);
     };
-    const [addedToCart, setAddedToCart]= useState({});
+    
 
     const handleAddToCart = (plant) => {
         dispatch(addItem(plant));
@@ -272,8 +273,8 @@ function ProductList({ onHomeClick }) {
                         <img src="https://cdn.pixabay.com/photo/2020/08/05/13/12/eco-5465432_1280.png" alt="" />
                         <a href="/" onClick={(e) => handleHomeClick(e)}>
                             <div>
-                                <h3 style={{ color: 'white' }}>Paradise Nursery</h3>
-                                <i style={{ color: 'white' }}>Where Green Meets Serenity</i>
+                                <h3 style={{ color: 'white' }}>Natural House</h3>
+                                <i style={{ color: 'white' }}>Where Nature is Home</i>
                             </div>
                         </a>
                     </div>
@@ -296,7 +297,10 @@ function ProductList({ onHomeClick }) {
                                         <div className='product-title'>{plant.name}</div>
                                         <div className='product-description'>{plant.description}</div>
                                         <div className='product-price'>{plant.cost}</div>
-                                        <button  className="product-button" onClick={() => handleAddToCart(plant)}>Add to Cart</button>
+                                        { !addedToCart.name
+                                        ? <button  className="product-button" onClick={() => handleAddToCart(plant)}>Add to Cart</button>
+                                        : <button  className="product-button added-to-cart">Added to Cart</button>
+                                        }
                                     </div>
                                 ))}
                             </div>
